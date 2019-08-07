@@ -13,6 +13,7 @@
 		280D634022FAFC9A0051AB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280D633F22FAFC9A0051AB12 /* Assets.xcassets */; };
 		280D634322FAFC9A0051AB12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280D634122FAFC9A0051AB12 /* LaunchScreen.storyboard */; };
 		280D634622FAFC9A0051AB12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 280D634522FAFC9A0051AB12 /* main.m */; };
+		280D634E22FAFCD70051AB12 /* WKWebView+Responder.m in Sources */ = {isa = PBXBuildFile; fileRef = 280D634D22FAFCD60051AB12 /* WKWebView+Responder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		280D634222FAFC9A0051AB12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		280D634422FAFC9A0051AB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		280D634522FAFC9A0051AB12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		280D634C22FAFCD60051AB12 /* WKWebView+Responder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Responder.h"; sourceTree = "<group>"; };
+		280D634D22FAFCD60051AB12 /* WKWebView+Responder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Responder.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				280D633722FAFC980051AB12 /* AppDelegate.m */,
 				280D633922FAFC980051AB12 /* ViewController.h */,
 				280D633A22FAFC980051AB12 /* ViewController.m */,
+				280D634C22FAFCD60051AB12 /* WKWebView+Responder.h */,
+				280D634D22FAFCD60051AB12 /* WKWebView+Responder.m */,
 				280D633C22FAFC980051AB12 /* Main.storyboard */,
 				280D633F22FAFC9A0051AB12 /* Assets.xcassets */,
 				280D634122FAFC9A0051AB12 /* LaunchScreen.storyboard */,
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280D634E22FAFCD70051AB12 /* WKWebView+Responder.m in Sources */,
 				280D633B22FAFC980051AB12 /* ViewController.m in Sources */,
 				280D634622FAFC9A0051AB12 /* main.m in Sources */,
 				280D633822FAFC980051AB12 /* AppDelegate.m in Sources */,
