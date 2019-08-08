@@ -14,7 +14,7 @@
 
 @interface ViewController ()<WKUIDelegate, WKNavigationDelegate>
 @property(nonatomic, strong) WKWebView *webView;
-@property(nonatomic, strong) UIMenuController* menuController;
+@property(nonatomic, strong) UIMenuController *menuController;
 @end
 
 @implementation ViewController
@@ -44,22 +44,59 @@
     self.menuController = [UIMenuController sharedMenuController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willShowMenu:)
+                                                 name:UIMenuControllerWillShowMenuNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didShowMenu:)
+                                                 name:UIMenuControllerDidShowMenuNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(willHideMenu:)
                                                  name:UIMenuControllerWillHideMenuNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willShowMenu:)
-                                                 name:UIMenuControllerWillShowMenuNotification
+                                             selector:@selector(didHideMenu:)
+                                                 name:UIMenuControllerDidHideMenuNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(menuFrameDidChanged:)
+                                                 name:UIMenuControllerMenuFrameDidChangeNotification
+                                               object:nil];
+
 }
 
-- (void)willShowMenu:(NSNotification*)notification {
+// 这是一种在 wkwebview 中隐藏系统自带菜单的方法，也可以通过css属性来控制隐藏，具体原理我们可以晚会儿再理解 https://answer-id.com/62347732
+
+- (void)willShowMenu:(NSNotification *)notification {
     NSLog(@"willShowMenu");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"[self.menuController setMenuVisible:NO];");
+        [self.menuController setMenuVisible:NO];
+    });
 }
 
-- (void)willHideMenu:(NSNotification*)notification {
+- (void)didShowMenu:(NSNotification *)notification {
+    NSLog(@"didShowMenu");
+}
+
+- (void)willHideMenu:(NSNotification *)notification {
    NSLog(@"willHideMenu");
+}
+
+- (void)didHideMenu:(NSNotification *)notification {
+    NSLog(@"didHideMenu");
+    NSLog(@"menuframe = %@, visible = %@", @(_menuController.menuFrame), @(_menuController.menuVisible));
+}
+
+- (void)menuFrameDidChanged:(NSNotification *)notification {
+    NSLog(@"menuFrameDidChanged");
+    
+    NSLog(@"menuframe = %@", @([self.menuController menuFrame]));
 }
 
 
