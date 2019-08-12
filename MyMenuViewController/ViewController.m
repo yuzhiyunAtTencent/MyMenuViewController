@@ -70,14 +70,9 @@
 
 }
 
-// 这是一种在 wkwebview 中隐藏系统自带菜单的方法，也可以通过css属性来控制隐藏，具体原理我们可以晚会儿再理解 https://answer-id.com/62347732
-
 - (void)willShowMenu:(NSNotification *)notification {
     NSLog(@"willShowMenu");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"[self.menuController setMenuVisible:NO];");
-        [self.menuController setMenuVisible:NO];
-    });
+
 }
 
 - (void)didShowMenu:(NSNotification *)notification {
